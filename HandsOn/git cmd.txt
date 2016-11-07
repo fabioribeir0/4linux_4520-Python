@@ -1,0 +1,8 @@
+git status
+
+git add --all
+git commit -m "Segunda"
+git push origin master
+
+git config --global user.name "Nome"
+git config --global user.email "Email"
