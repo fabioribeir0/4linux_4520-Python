@@ -3,14 +3,34 @@ import sys
 import json
 
 
+def criar_cont():
+    pass
+
+
+def rem_cont():
+    pass
+
+
+def cmd_cont():
+    pass
+
+
 def menu():
     print '1 - Cadastrar'
     print '2 - Remover'
     print '3 - Listar'
     print '4 - Autenticar'
-    print '5 - Sair'
-    opcao = input('\nSelecione uma opcao: ')
-    return opcao
+    print '5 - Criar Container'
+    print '6 - Remover Container'
+    print '7 - Executar comando'
+    print '8 - Sair'
+    
+    try:
+        opcao = input('\nSelecione uma opcao: ')
+        return opcao
+    except Exception as e:
+        print 'Escolha um numero! ', e
+        return 0
 
 
 def read_db():
@@ -89,9 +109,15 @@ def switch(x):
                2:remover,
                3:listar,
                4:autenticar,
-               5:sair}
-    funcoes[x]()
-
+               5:criar_cont,
+               6:rem_cont,
+               7:cmd_cont,
+               8:sair}
+    
+    try:
+        funcoes[x]()
+    except Exception as e:
+        print 'Opcao invalida. ', e
 
 while True:
     opcao = menu()

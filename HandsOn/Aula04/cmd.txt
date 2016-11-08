@@ -1,0 +1,4 @@
+docker run -tdi --name debian debian /bin/bash
+docker ps
+docker stop debian
+docker rm debian
