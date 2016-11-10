@@ -14,3 +14,5 @@ https://github.com/fabioribeir0/4linux_course.git
 
 pipreqs "path"
 pip install -r "path/file.txt"
+
+pip install sqlacodegen

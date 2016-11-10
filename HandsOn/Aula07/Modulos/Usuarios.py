@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from Modulos.model import session, Usuarios
+from Modulos.model import session, Usuarios, Tokens
 
 
 def cadastrar_usuario():
@@ -43,6 +43,11 @@ def autenticar_usuario():
     usuario = session.query(Usuarios).filter(Usuarios.login==login,
                                              Usuarios.senha==senha).first()
     if usuario:
+        t = Tokens()
+        usuario.tokens.append(t)
+        session.add(t)
+        session.commit()
         print 'USUARIO AUTENTICADO COM SUCESSO!\n'
+        print 'TOKEN DE ACESSO:', t.token, '\n'
     else:
-        print 'USUARIO OU SENHA INVALIDA\n'
+        print 'USUARIO OU SENHA INVALIDA!\n'
